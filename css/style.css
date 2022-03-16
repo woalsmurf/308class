@@ -54,16 +54,16 @@ p {
 p.quotation {
     font-style: italic;
     font-size: medium;
-    color: #555555;
+    color: #555;
     margin-left: 20px;
     padding: 5px;
     padding-left: 15px;
 
     border-left-style: solid;
     border-left-width: 5px;
-    border-color: #555555;
+    border-color: #555;
 
-    background-color: #eeeeee;
+    background-color: #eee;
 }
 
 /* 기본 테이블 */
@@ -87,18 +87,14 @@ div.mainContainer {
     grid-template-areas:
     "header header header"
     "activity activity activity"
-    "form form form"
     "lunch lunch lunch"
-    "calendar cleaning file"
+    "file calendar form"
     "footer footer footer";
 
     width: 100%;
     border-style: hidden;
     gap: 5px;
-}
-.item {
-    background-color: #eeeeee;
-    padding: 10px;
+    justify-content: space-between;
 }
 
 /* 헤더 */
@@ -108,6 +104,7 @@ div.header {
 div.title {
     width: 100%;
 }
+
 /* 부서 활동 */
 div.activityContainer {
     padding: 10px;
@@ -116,89 +113,167 @@ div.activityContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 /* 각 부서별 활동 */
 div.singleActivity {
-    background-color: #eeeeee;
+    background-color: #eee;
     border-radius: 10px;
-    margin: 5px;
+    padding: 10px;
+    text-align: center;
 
     display: grid;
     grid-template-areas: 
     "thumbnail name"
     "thumbnail link";
     grid-template-columns: 120px auto;
+    grid-template-rows: 40px auto;
 }
+/* 활동 썸네일 */
 div.activityThumbnail {
     grid-area: thumbnail;
 }
 img.thumbnail {
-    width: 100%;
+    width: 100px;
     margin: 5%;
+    padding: 5%;
     border-radius: 10px;
+    background-color: white;
 }
+/* 부서명 */
 div.groupName {
     grid-area: name;
+    background-color: #ddd;
     border-radius: 10px;
-    padding: 10px;
+    margin: 5px;
     font-weight: bold;
 }
+/* 활동 링크 */
 div.activityLink {
     grid-area: link;
     border-radius: 10px;
     padding: 15px;
 }
 
+/* 설문 */
 div.formContainer {
     grid-area: form;
-    background-color: #333333;
-    color: #dddddd;
     text-align: center;
     font-weight: bold;
+
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 5px;
     padding: 15px;
+    font-weight: bold;
 }
 
-div.lunchContainer {
+/* 요일별 정보 */
+div.dayContainer {
     grid-area: lunch;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-div.singleLunch {
+/* 일별 정보 */
+div.singleDay {
     border-style: dashed;
     border-width: 2px;
-    border-color: #555555;
+    border-color: #555;
     border-radius: 10px;
     margin: 5px;
     text-align: center;
     flex: 1 0 150px;
 }
-div.lunchDay {
-    background-color: #dddddd;
+/* 날짜 */
+div.dayTitle {
+    background-color: #ddd;
     border-radius: 10px;
     margin: 5px;
     font-weight: bold;
 }
+/* 청소 당번 */
+div.dayCleaning {
+    border-bottom-color: #ddd;
+    border-bottom-style: solid;
+    border-width: 2px;
+    margin-left: 20%;
+    margin-right: 20%;
 
-div.calendarContainer {
-    grid-area: calendar;
-    display: flex;
+    color: #446;
 }
+
+/* 파일 컨테이너 */
+div.fileContainer {
+    grid-area: file;
+    display: grid;
+    grid-template-columns: 100px auto;
+    text-align: center;
+    width: auto;
+}
+/* 스케줄 컨테이너 */
+div.scheduleContainer {
+    grid-area: calendar;
+    display: grid;
+    grid-template-columns: 100px auto;
+    text-align: center;
+    width: auto;
+}
+/* 목록 컨테이너 제목 */
+div.listContainerTitle {
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 5px;
+    font-weight: bold;
+}
+/* 항목 컨테이너 */
+div.listItemContainer {
+    display: flex;
+    flex-direction: column;
+}
+/* 리스트 각 항목 */
+div.listItem {
+    border-bottom-color: #ddd;
+    border-bottom-style: solid;
+    border-width: 2px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    font-weight: bold;
+    color: #222;
+}
+
+/* 청소 */
 div.cleaningContainer {
     grid-area: cleaning;
     display: flex;
 }
-div.fileContainer {
-    grid-area: file;
-    display: flex;
+
+/* 개별 파일 링크 */
+a.fileLink {
+    border-bottom-color: #ddd;
+    border-bottom-style: solid;
+    border-width: 2px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    font-weight: bold;
+    color: #222;
 }
+
+/* 하단 */
 div.footer {
     grid-area: footer;
     font-size: small;
     text-align: center;
-    background-color: #222222;
-    color: #aaaaaa;
+    background-color: #222;
+    color: #aaa;
     padding: 5px;
 }
 
@@ -215,7 +290,7 @@ div.articleContainer {
 }
 /* 저자별 기사 컨테이너 */
 div.articleInfo {
-    
+    color: inherit;
 }
 /* 기사 썸네일 칸 */
 div.articleThumbnail {
@@ -233,7 +308,7 @@ table.buttonContainer {
     width: 100%;
     text-align: center;
     
-    background-color: #222222;
+    background-color: #222;
 }
 td.button {
     width: 20%;
@@ -242,7 +317,7 @@ td.button {
     border-width: 5px;
 }
 td.button:hover {
-    background-color: #333333;
+    background-color: #333;
 }
 a.button {
     color: white;
