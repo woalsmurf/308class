@@ -19,11 +19,11 @@
 /* 기본 텍스트 */
 html, body {
     font-family: "Nanum Gothic";
-    font-size: large;
     line-height: 150%;
+    font-size: xx-large;
 
     width : 100%;
-	height : 100%;
+	height : auto;
 	margin : 0;
 	padding : 0;
 	border : none;
@@ -75,21 +75,21 @@ table {
 
 /* 하이퍼링크 */
 a {
-    font-size: large;
     text-decoration: none;
     color: inherit;
 }
 
 /* 메인 컨테이너 */
 div.mainContainer {
-    display: grid;
-
+    display: flex;
+    flex-direction: column;
+    /*
     grid-template-areas:
     "header header header"
     "activity activity activity"
     "lunch lunch lunch"
     "file calendar form"
-    "footer footer footer";
+    "footer footer footer";*/
 
     width: 100%;
     border-style: hidden;
@@ -111,15 +111,16 @@ div.activityContainer {
 
     grid-area: activity;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 /* 각 부서별 활동 */
 div.singleActivity {
     background-color: #eee;
     border-radius: 10px;
     padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
 
     display: grid;
@@ -127,7 +128,6 @@ div.singleActivity {
     "thumbnail name"
     "thumbnail link";
     grid-template-columns: 120px auto;
-    grid-template-rows: 40px auto;
 }
 /* 활동 썸네일 */
 div.activityThumbnail {
@@ -159,13 +159,9 @@ div.activityLink {
 div.formContainer {
     grid-area: form;
     text-align: center;
-    font-weight: bold;
 
     background-color: #ddd;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 15px;
-    font-weight: bold;
+    padding: 20px;
 }
 
 /* 요일별 정보 */
@@ -173,7 +169,7 @@ div.dayContainer {
     grid-area: lunch;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    overflow-x: scroll;
 }
 /* 일별 정보 */
 div.singleDay {
@@ -183,7 +179,7 @@ div.singleDay {
     border-radius: 10px;
     margin: 5px;
     text-align: center;
-    flex: 1 0 150px;
+    flex: 1 0 400px;
 }
 /* 날짜 */
 div.dayTitle {
@@ -205,31 +201,30 @@ div.dayCleaning {
 
 /* 파일 컨테이너 */
 div.fileContainer {
-    grid-area: file;
-    display: grid;
-    grid-template-columns: 100px auto;
+    display: flex;
+    flex-direction: row;
     text-align: center;
-    width: auto;
 }
 /* 스케줄 컨테이너 */
 div.scheduleContainer {
-    grid-area: calendar;
-    display: grid;
-    grid-template-columns: 100px auto;
+    display: flex;
+    flex-direction: row;
     text-align: center;
-    width: auto;
 }
 /* 목록 컨테이너 제목 */
 div.listContainerTitle {
     background-color: #ddd;
     border-radius: 10px;
     margin: 5px;
+    font-size: inherit;
     font-weight: bold;
+    width: 30%;
 }
 /* 항목 컨테이너 */
 div.listItemContainer {
     display: flex;
     flex-direction: column;
+    flex: 1 0 200px;
 }
 /* 리스트 각 항목 */
 div.listItem {
@@ -237,10 +232,9 @@ div.listItem {
     border-bottom-style: solid;
     border-width: 2px;
 
+    height: 50px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 2px;
-    margin-bottom: 2px;
 
     font-weight: bold;
     color: #222;
@@ -258,6 +252,7 @@ a.fileLink {
     border-bottom-style: solid;
     border-width: 2px;
 
+    height: 50px;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 2px;
@@ -270,7 +265,6 @@ a.fileLink {
 /* 하단 */
 div.footer {
     grid-area: footer;
-    font-size: small;
     text-align: center;
     background-color: #222;
     color: #aaa;
