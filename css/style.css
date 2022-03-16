@@ -193,20 +193,30 @@ div.dayCleaning {
     border-bottom-color: #ddd;
     border-bottom-style: solid;
     border-width: 2px;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 15%;
 
     color: #446;
 }
 
 /* 파일 컨테이너 */
 div.fileContainer {
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #555;
+    border-radius: 10px;
+
     display: flex;
     flex-direction: row;
     text-align: center;
 }
 /* 스케줄 컨테이너 */
 div.scheduleContainer {
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #555;
+    border-radius: 10px;
+
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -238,12 +248,6 @@ div.listItem {
 
     font-weight: bold;
     color: #222;
-}
-
-/* 청소 */
-div.cleaningContainer {
-    grid-area: cleaning;
-    display: flex;
 }
 
 /* 개별 파일 링크 */
