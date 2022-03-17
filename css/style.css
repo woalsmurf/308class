@@ -159,6 +159,7 @@ div.activityLink {
 div.formContainer {
     grid-area: form;
     text-align: center;
+    font-weight: bold;
 
     background-color: #ddd;
     padding: 20px;
