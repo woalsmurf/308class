@@ -1,14 +1,8 @@
 /* 외부 폰트 */
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
-
-@font-face {
-    font-family: "jua";
-    src: url(../fonts/BMJUA_ttf.ttf);
-}
-@font-face {
-    font-family: "dohyeon";
-    src: url(../fonts/BMDOHYEON_ttf.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 /* div, p, a border: 테스트용 */
 /*div, p, a {
@@ -17,70 +11,41 @@
 } /**/
 
 /* 기본 텍스트 */
-html, body {
-    font-family: "Nanum Gothic";
+html {
+    -webkit-text-size-adjust : none;  /* 크롬, 사파리, 오페라 신버전 */
+    -ms-text-size-adjust : none;  /* IE */
+    -moz-text-size-adjust : none;  /* 파이어폭스 */
+    -o-text-size-adjust : none;  /* 오페라 구버전 */
+}
+
+body {
     line-height: 150%;
-    font-size: xx-large;
 
     width : 100%;
 	height : auto;
 	margin : 0;
 	padding : 0;
 	border : none;
+
+    font-size: 200%;
 }
 /* h1: 페이지 제목 */
 h1 {
-    font-family: "dohyeon";
-    font-size: xx-large;
+    font-family: "Do Hyeon";
+    font-size: 250%;
     padding: 10px;
     text-align: inherit;
-}
-/* h2: 기사 제목 */
-h2 {
-    font-family: "Nanum Gothic";
-    font-size: xx-large;
-}
-/* h3: 소제목 */
-h3 {
-    font-family: "Nanum Gothic";
-    font-size: x-large;
-}
-/* 기본 p */
-p {
-    font-family: "Nanum Gothic";
-    font-size: large;
-}
-/* 인용구 p */
-p.quotation {
-    font-style: italic;
-    font-size: medium;
-    color: #555;
-    margin-left: 20px;
-    padding: 5px;
-    padding-left: 15px;
-
-    border-left-style: solid;
-    border-left-width: 5px;
-    border-color: #555;
-
-    background-color: #eee;
-}
-
-/* 기본 테이블 */
-table {
-    font-family: "Nanum Gothic";
-    border-color: black;
-    padding: 0%;
 }
 
 /* 하이퍼링크 */
 a {
-    text-decoration: none;
+    font-family: "Nanum Gothic";
     color: inherit;
 }
 
 /* 메인 컨테이너 */
 div.mainContainer {
+    font-family: "Nanum Gothic";
     display: flex;
     flex-direction: column;
     /*
@@ -107,8 +72,6 @@ div.title {
 
 /* 부서 활동 */
 div.activityContainer {
-    padding: 10px;
-
     grid-area: activity;
     display: flex;
     flex-direction: column;
@@ -117,11 +80,9 @@ div.activityContainer {
 /* 각 부서별 활동 */
 div.singleActivity {
     background-color: #eee;
-    border-radius: 10px;
     padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
     display: grid;
     grid-template-areas: 
@@ -145,24 +106,35 @@ div.groupName {
     grid-area: name;
     background-color: #ddd;
     border-radius: 10px;
-    margin: 5px;
+    margin: 10px;
+    padding: 10px;
+
+    font-size: 100%;
     font-weight: bold;
 }
 /* 활동 링크 */
 div.activityLink {
     grid-area: link;
     border-radius: 10px;
-    padding: 15px;
+    margin: 10px;
+    padding: 5px;
+    padding-left: 15px;
+
+    font-size: 100%;
 }
 
 /* 설문 */
 div.formContainer {
     grid-area: form;
     text-align: center;
-    font-weight: bold;
-
     background-color: #ddd;
     padding: 20px;
+
+    font-size: 100%;
+
+}
+a.classForm {
+    font-weight: bold;
 }
 
 /* 요일별 정보 */
@@ -174,19 +146,28 @@ div.dayContainer {
 }
 /* 일별 정보 */
 div.singleDay {
-    border-style: dashed;
+    border-style: solid;
     border-width: 2px;
-    border-color: #555;
-    border-radius: 10px;
+    border-color: #bbb;
+    border-radius: 20px;
     margin: 5px;
+    padding: 5px;
     text-align: center;
-    flex: 1 0 400px;
+    flex: 1 0 300px;
+    justify-content: space-between;
+
+    font-size: 100%;
+}
+div.singleDay > div {
+    height: fit-content;
 }
 /* 날짜 */
 div.dayTitle {
     background-color: #ddd;
     border-radius: 10px;
     margin: 5px;
+    padding: 5px;
+
     font-weight: bold;
 }
 /* 청소 당번 */
@@ -194,12 +175,10 @@ div.dayCleaning {
     border-bottom-color: #ddd;
     border-bottom-style: solid;
     border-width: 2px;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin: 5%;
+    padding: 10px;
 
-    color: #446;
+    color: #444;
 }
 
 /* 파일 컨테이너 */
@@ -211,7 +190,6 @@ div.fileContainer {
 
     display: flex;
     flex-direction: row;
-    text-align: center;
 }
 /* 스케줄 컨테이너 */
 div.scheduleContainer {
@@ -222,16 +200,18 @@ div.scheduleContainer {
 
     display: flex;
     flex-direction: row;
-    text-align: center;
 }
 /* 목록 컨테이너 제목 */
 div.listContainerTitle {
     background-color: #ddd;
     border-radius: 10px;
     margin: 5px;
-    font-size: inherit;
+    padding: 20px;
+    width: 20%;
+    
+    font-size: 150%;
     font-weight: bold;
-    width: 30%;
+    text-align: center;
 }
 /* 항목 컨테이너 */
 div.listItemContainer {
@@ -245,10 +225,11 @@ div.listItem {
     border-bottom-style: solid;
     border-width: 2px;
 
-    height: 50px;
+    padding: 10px;
     margin-left: 10px;
     margin-right: 10px;
 
+    font-size: 100%;
     font-weight: bold;
     color: #222;
 }
@@ -259,12 +240,11 @@ a.fileLink {
     border-bottom-style: solid;
     border-width: 2px;
 
-    height: 50px;
+    padding: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 2px;
-    margin-bottom: 2px;
 
+    font-size: 100%;
     font-weight: bold;
     color: #222;
 }
@@ -278,49 +258,75 @@ div.footer {
     padding: 5px;
 }
 
-/* 기사 컨테이너 */
-div.articleContainer {
-    font-size: large;
-    width: 100%;
-    height: 100%;
-    
-    border-width: 1px;
-    border-style: dashed;
-
-    text-align: left;
-}
-/* 저자별 기사 컨테이너 */
-div.articleInfo {
-    color: inherit;
-}
-/* 기사 썸네일 칸 */
-div.articleThumbnail {
-    width: 15%;
-}
-/* 기사 제목과 저자 칸 */
-div.articleLink {
-    text-align: left;
-    font-size: x-large;
-    width: 85%;
-}
-
 /* 개별 기사 버튼 */
-table.buttonContainer {
+div.articleMenu {
+    display: flex;
     width: 100%;
     text-align: center;
-    
-    background-color: #222;
-}
-td.button {
-    width: 20%;
+    background-color: #ddd;
+
     padding: 10px;
-    font-size: x-large;
+}
+div.button {
+    padding: 10px;
     border-width: 5px;
 }
-td.button:hover {
-    background-color: #333;
-}
 a.button {
-    color: white;
+    color: #444;
     text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+a.button:hover {
+    color: #222;
+    text-decoration: underline;
+}
+
+/* 기본 p */
+p {
+    font-family: "Nanum Myeongjo";
+}
+/* 기사 표제 */
+p.articleTitle {
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+/* 기사 부제 */
+p.articleSubtitle {
+    font-size: 150%;
+    text-align: right;
+}
+/* 기사 저자 */
+p.articleAuthor {
+    font-size: 150%;
+    color: #444;
+    text-align: right;
+}
+/* 기사 내용 */
+p.articleContent {
+    text-indent: 10px;
+    padding: 20px;
+    font-size: 100%;
+}
+/* 기사 인용구 */
+p.quotation {
+    text-indent: 10px;
+    color: #444;
+    font-size: 100%;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    padding-left: 20px;
+
+    border-left-style: solid;
+    border-left-width: 5px;
+    border-color: #666;
+
+    background-color: #eee;
+}
+/* 기사 이미지 */
+img.articleImg {
+    width: 100%;
 }
