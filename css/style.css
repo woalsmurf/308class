@@ -291,6 +291,7 @@ p.articleTitle {
     font-size: 200%;
     font-weight: bold;
     text-align: center;
+    line-height: 150%;
 }
 /* 기사 부제 */
 p.articleSubtitle {
@@ -308,6 +309,13 @@ p.articleContent {
     text-indent: 10px;
     padding: 20px;
     font-size: 100%;
+}
+/* 기사 챕터명 */
+p.articleChapter {
+    padding: 20px;
+    font-size: 125%;
+    text-align: center;
+    font-weight: bold;
 }
 /* 기사 인용구 */
 p.quotation {
